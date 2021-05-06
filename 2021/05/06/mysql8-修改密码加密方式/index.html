@@ -9,7 +9,7 @@
     
     <title>
         
-            关于 |
+            MySql8 修改密码加密方式 |
         
         Will&#39;s blog
     </title>
@@ -94,7 +94,7 @@
                         </li>
                     
                         <li class="menu-item">
-                            <a class="active"
+                            <a class=""
                                href="/about"
                             >
                                 关于
@@ -143,7 +143,7 @@
                 </li>
             
                 <li class="drawer-menu-item flex-center">
-                    <a class="active"
+                    <a class=""
                        href="/about">关于</a>
                 </li>
             
@@ -163,17 +163,116 @@
 
                 
                     <div class="fade-in-down-animation">
-    <div class="page-template-container">
-        
-        
-        <div class="page-template-content markdown-body">
-            
-                <h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3>
-            
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">MySql8 修改密码加密方式</span>
         </div>
-        <div class="page-template-comments">
-            
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/12.jpeg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">will.zuo</span>
+                        
+                            <span class="author-label">PHP开发工程师</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-05-06 16:30:08
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/MySql/">MySql</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h4 id="进入my-cnf-修改配置文件"><a href="#进入my-cnf-修改配置文件" class="headerlink" title="进入my.cnf 修改配置文件"></a>进入my.cnf 修改配置文件</h4><pre><code>vim /etc/my.cnf
+[mysqld]
+default_authentication_plugin=mysql_native_password
+</code></pre>
+<h4 id="进入-mysql-修改配置"><a href="#进入-mysql-修改配置" class="headerlink" title="进入 mysql 修改配置"></a>进入 mysql 修改配置</h4><pre><code>ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;密码&#39; PASSWORD EXPIRE NEVER;
+ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &#39;密码&#39;; 
+FLUSH PRIVILEGES;
+</code></pre>
+<h4 id="查看加密方式是否被改变"><a href="#查看加密方式是否被改变" class="headerlink" title="查看加密方式是否被改变"></a>查看加密方式是否被改变</h4><pre><code>use mysql;
+select user,plugin from user;
+// 如果出现两个root用户且加密方式不对，删除不是mysql_native_password的一个
+</code></pre>
+
         </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：MySql8 修改密码加密方式</li>
+        <li>本文作者：will.zuo</li>
+        <li>创建时间：2021-05-06 16:30:08</li>
+        <li>
+            本文链接：https://www.zuojiansheng.com/2021/05/06/mysql8-修改密码加密方式/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/04/30/vue-cli-%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8E%9F%E5%9E%8B%E9%A1%B9%E7%9B%AE/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">vue-cli 初始化原型项目</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
     </div>
 </div>
 
@@ -218,6 +317,23 @@
         </div>
     </div>
 
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
     
 
     <div class="right-bottom-side-tools">
@@ -264,6 +380,14 @@
 
     </div>
 
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9B%E5%85%A5my-cnf-%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">进入my.cnf 修改配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9B%E5%85%A5-mysql-%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">进入 mysql 修改配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%8A%A0%E5%AF%86%E6%96%B9%E5%BC%8F%E6%98%AF%E5%90%A6%E8%A2%AB%E6%94%B9%E5%8F%98"><span class="nav-number">3.</span> <span class="nav-text">查看加密方式是否被改变</span></a></li></ol>
+    </div>
+</div>
+        </aside>
     
 
     <div class="image-viewer-container">
@@ -321,6 +445,8 @@
 
 
 <div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/toc.js"></script>
     
 </div>
 
