@@ -227,11 +227,11 @@
         
 
         <div class="article-content markdown-body">
-            <h4 id="1-安装扩展"><a href="#1-安装扩展" class="headerlink" title="1. 安装扩展"></a>1. 安装扩展</h4><pre><code class="php">composer require barryvdh/laravel-cors
+            <h4 id="1-安装扩展"><a href="#1-安装扩展" class="headerlink" title="1. 安装扩展"></a>1. 安装扩展</h4><pre><code>composer require barryvdh/laravel-cors
 </code></pre>
-<h4 id="2-发布配置文件"><a href="#2-发布配置文件" class="headerlink" title="2. 发布配置文件"></a>2. 发布配置文件</h4><pre><code class="php">php artisan vendor:publish --provider=&quot;Barryvdh\Cors\ServiceProvider&quot;
+<h4 id="2-发布配置文件"><a href="#2-发布配置文件" class="headerlink" title="2. 发布配置文件"></a>2. 发布配置文件</h4><pre><code>php artisan vendor:publish --provider=&quot;Barryvdh\Cors\ServiceProvider&quot;
 </code></pre>
-<h4 id="3-使用"><a href="#3-使用" class="headerlink" title="3. 使用"></a>3. 使用</h4><pre><code class="php">如果需要全局使用，可以在 app/Http/Kernel.php 的 $middleware 中增加 \Barryvdh\Cors\HandleCors::class，
+<h4 id="3-使用"><a href="#3-使用" class="headerlink" title="3. 使用"></a>3. 使用</h4><pre><code>如果需要全局使用，可以在 app/Http/Kernel.php 的 $middleware 中增加 \Barryvdh\Cors\HandleCors::class，
 </code></pre>
 
         </div>
