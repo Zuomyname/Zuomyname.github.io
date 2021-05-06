@@ -9,6 +9,8 @@
     
     <title>
         
+            CentOs 7 下安装 wkhtmltopdf |
+        
         Will&#39;s blog
     </title>
     
@@ -60,7 +62,7 @@
                 <ul class="menu-list">
                     
                         <li class="menu-item">
-                            <a class="active"
+                            <a class=""
                                href="/"
                             >
                                 首页
@@ -121,7 +123,7 @@
         <ul class="drawer-menu-list">
             
                 <li class="drawer-menu-item flex-center">
-                    <a class="active"
+                    <a class=""
                        href="/">首页</a>
                 </li>
             
@@ -160,326 +162,139 @@
             <div class="main-content">
 
                 
-                    <div class="home-content-container fade-in-down-animation">
-    <ul class="home-article-list">
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">CentOs 7 下安装 wkhtmltopdf</span>
+        </div>
+
         
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/05/06/centos7-%E4%B8%8B%E5%AE%89%E8%A3%85-wkhtmltopdf/">
-                        CentOs 7 下安装 wkhtmltopdf
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        两种方式安装，其中方法一比较顺利方法一
-安装依赖yum install -y fontconfig libX11 libXext libXrender libjpeg libpng xorg-x11-fonts-75dpi xorg-x11-font...
-                    
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/12.jpeg">
                 </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">will.zuo</span>
+                        
+                            <span class="author-label">PHP开发工程师</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-05-06 17:08:54
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/wkhtmltopdf/">wkhtmltopdf</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
 
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu May 06 2021 17:08:54 GMT+0800">2021-05-06</span></span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/wkhtmltopdf/">wkhtmltopdf</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/2021/05/06/centos7-%E4%B8%8B%E5%AE%89%E8%A3%85-wkhtmltopdf/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
 </div>
 
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/05/06/composer-required-%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">
-                        Composer required 内存溢出解决办法
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        在使用 composer 过程中出现内存溢出错误，只需要暂时将内存设置为没有限制COMPOSER_MEMORY_LIMIT=-1 composer required(install、update)
-
-
-                    
+                    </div>
                 </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu May 06 2021 17:07:53 GMT+0800">2021-05-06</span></span>
+            </div>
         
+
+        <div class="article-content markdown-body">
+            <h3 id="两种方式安装，其中方法一比较顺利"><a href="#两种方式安装，其中方法一比较顺利" class="headerlink" title="两种方式安装，其中方法一比较顺利"></a>两种方式安装，其中方法一比较顺利</h3><h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><ol>
+<li>安装依赖<pre><code>yum install -y fontconfig libX11 libXext libXrender libjpeg libpng xorg-x11-fonts-75dpi xorg-x11-fonts-Type1
+</code></pre>
+</li>
+<li>下载 wkhtmltopdf<pre><code>wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox-0.12.6-1.centos7.x86_64.rpm
+</code></pre>
+</li>
+<li>解压 wkhtmltopdf<pre><code>rpm -ivh wkhtmltox-0.12.6-1.centos7.x86_64.rpm
+</code></pre>
+</li>
+<li>查看 wkhtmltopdf<pre><code>whereis wkhtmltopdf
+</code></pre>
+</li>
+</ol>
+<h5 id="方法二：在-laravel-项目中使用-composer-安装"><a href="#方法二：在-laravel-项目中使用-composer-安装" class="headerlink" title="方法二：在 laravel 项目中使用 composer 安装"></a>方法二：在 laravel 项目中使用 composer 安装</h5><ol>
+<li><p>composer 安装</p>
+<pre><code>$ composer require h4cc/wkhtmltopdf-amd64 0.12.x
+$ composer require h4cc/wkhtmltoimage-amd64 0.12.x
+</code></pre>
+</li>
+<li><p>接下来将安装好的 wkhtmltopdf 复制到 Linux 系统可执行命令的目录中</p>
+<pre><code>cp vendor/h4cc/wkhtmltoimage-amd64/bin/wkhtmltoimage-amd64 /usr/local/bin/
+cp vendor/h4cc/wkhtmltopdf-amd64/bin/wkhtmltopdf-amd64 /usr/local/bin/
+//并使其可执行：
+chmod +x /usr/local/bin/wkhtmltoimage-amd64 
+chmod +x /usr/local/bin/wkhtmltopdf-amd64
+</code></pre>
+</li>
+</ol>
+<h4 id="可能存在的问题"><a href="#可能存在的问题" class="headerlink" title="可能存在的问题"></a>可能存在的问题</h4><ol>
+<li>中文字体无法显示<pre><code>// 下载 windows 宋体字体，将 simsunbd.ttf 文件导入到 centos 系统 /usr/share/fonts/chinese/TrueType 文件目录下
+</code></pre>
+</li>
+</ol>
+
+        </div>
+
         
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/Composer/">Composer</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/2021/05/06/composer-required-%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/05/06/docker-%E5%AD%A6%E4%B9%A0/">
-                        Docker 学习
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        Docker 概述1. docker 为什么会出现
-环境不统一
-环境配置十分麻烦，部署费时费力
-docker 的思想来源于集装箱
-docker 通过隔离机制，可以将服务器利用到极致
-
-2. docker 可以做什么容器化技术不是模拟一个完整的操作系统...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu May 06 2021 17:06:03 GMT+0800">2021-05-06</span></span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/Docker/">Docker</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/2021/05/06/docker-%E5%AD%A6%E4%B9%A0/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/05/06/mysql8_%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/">
-                        MySql8 远程连接方式
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        mysql8 默认配置是不开启远程连接的，这里我们需要修改 mysql 数据库的配置来主动开启
-mysql -uroot -p
-use mysql;
-select host,user from user;
-update user set host=&...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu May 06 2021 16:59:06 GMT+0800">2021-05-06</span></span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/MySql/">MySql</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/2021/05/06/mysql8_%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/05/06/mysql8-%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81%E5%8A%A0%E5%AF%86%E6%96%B9%E5%BC%8F/">
-                        MySql8 修改密码加密方式
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        进入my.cnf 修改配置文件vim /etc/my.cnf
-[mysqld]
-default_authentication_plugin=mysql_native_password
-
-进入 mysql 修改配置ALTER USER &#39;roo...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu May 06 2021 16:30:08 GMT+0800">2021-05-06</span></span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/MySql/">MySql</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/2021/05/06/mysql8-%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81%E5%8A%A0%E5%AF%86%E6%96%B9%E5%BC%8F/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/04/30/vue-cli-%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8E%9F%E5%9E%8B%E9%A1%B9%E7%9B%AE/">
-                        vue-cli 初始化原型项目
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        安装 vue-clinpm install -g @vue/cli
-
-初始化项目vue create project
-
-启动项目cd project
-npm run serve
-
-需要安装的依赖vue add vue-router
-
-
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Apr 30 2021 16:02:43 GMT+0800">2021-04-30</span></span>
-        
-        
-    </div>
-
-    <a href="/2021/04/30/vue-cli-%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8E%9F%E5%9E%8B%E9%A1%B9%E7%9B%AE/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/04/30/laravel-%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F/">
-                        Laravel 解决跨域
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        1. 安装扩展composer require barryvdh/laravel-cors
-
-2. 发布配置文件php artisan vendor:publish --provider=&quot;Barryvdh\Cors\ServiceProv...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Apr 30 2021 15:42:45 GMT+0800">2021-04-30</span></span>
-        
-            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/categories/PHP/">PHP</a>&nbsp;
-                        </li>
-                    
-                    
-                </ul>
-            </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/Laravel/">Laravel</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/2021/04/30/laravel-%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：CentOs 7 下安装 wkhtmltopdf</li>
+        <li>本文作者：will.zuo</li>
+        <li>创建时间：2021-05-06 17:08:54</li>
+        <li>
+            本文链接：https://www.zuojiansheng.com/2021/05/06/centos7-下安装-wkhtmltopdf/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
     </ul>
-
-    <div class="home-paginator">
-        <div class="paginator">
-    
-
-    
 </div>
 
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/05/06/composer-required-%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Composer required 内存溢出解决办法</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
     </div>
 </div>
 
@@ -524,6 +339,23 @@ npm run serve
         </div>
     </div>
 
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
     
 
     <div class="right-bottom-side-tools">
@@ -571,6 +403,14 @@ npm run serve
     </div>
 
     
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85%EF%BC%8C%E5%85%B6%E4%B8%AD%E6%96%B9%E6%B3%95%E4%B8%80%E6%AF%94%E8%BE%83%E9%A1%BA%E5%88%A9"><span class="nav-number">1.</span> <span class="nav-text">两种方式安装，其中方法一比较顺利</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80"><span class="nav-number">1.1.</span> <span class="nav-text">方法一</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E5%9C%A8-laravel-%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8-composer-%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.1.</span> <span class="nav-text">方法二：在 laravel 项目中使用 composer 安装</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%AF%E8%83%BD%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.2.</span> <span class="nav-text">可能存在的问题</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
 
     <div class="image-viewer-container">
     <img src="">
@@ -612,7 +452,6 @@ npm run serve
 
 
 
-
 <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/dark-light-toggle.js"></script>
 
 
@@ -628,6 +467,8 @@ npm run serve
 
 
 <div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/toc.js"></script>
     
 </div>
 
