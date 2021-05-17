@@ -242,60 +242,70 @@
 &#125;
 </code></pre>
 <ol start="3">
-<li><p>排序</p>
-<pre><code>GET news202010/_search
-&#123;
-&quot;query&quot;: &#123;
-&quot;match&quot;: &#123;
-  &quot;textSrc&quot;: &quot;海底捞&quot;
-&#125;
-&#125;,
-&quot;sort&quot;: [
-&#123;
-  &quot;pubtime&quot;://字段 &#123;
-    &quot;order&quot;: &quot;desc&quot;
-  &#125;
-&#125;
-]
-&#125;
-</code></pre>
-</li>
-<li><p>分页</p>
-<pre><code>GET news202010/_search
-&#123;
-&quot;query&quot;: &#123;
-&quot;match&quot;: &#123;
-  &quot;textSrc&quot;: &quot;海底捞&quot;
-&#125;
-&#125;,
-&quot;sort&quot;: [
-&#123;
-  &quot;pubtime&quot;: &#123;
-    &quot;order&quot;: &quot;desc&quot;
-  &#125;
-&#125;
-],
-&quot;from&quot;: 0,
-&quot;size&quot;: 20
-&#125;
-</code></pre>
-</li>
-<li><p>多条件查询<br>```<br>GET news202010/_search<br>{<br>“query”: {<br>“bool”: {<br>  “must”: [</p>
-<pre><code>&#123;
-  &quot;match&quot;: &#123;
-    &quot;mediaNameSrc&quot;: &quot;搜狐&quot;
-  &#125;
-&#125;,
-&#123;
-  &quot;match&quot;: &#123;
-   li &quot;countryName&quot;: &quot;中国&quot;
-  &#125;
-&#125;
-</code></pre>
-<p>  ]<br>}<br>}<br>}</p>
-</li>
+<li>排序</li>
 </ol>
-<p>must 相当于 mysql 中 where id = 1 and name=xxx<br>should 相当于 or<br>```</p>
+<pre><code>GET news202010/_search
+&#123;
+ &quot;query&quot;: &#123;
+   &quot;match&quot;: &#123;
+     &quot;textSrc&quot;: &quot;海底捞&quot;
+   &#125;
+ &#125;,
+ &quot;sort&quot;: [
+   &#123;
+     &quot;pubtime&quot;://字段 &#123;
+       &quot;order&quot;: &quot;desc&quot;
+     &#125;
+   &#125;
+ ]
+&#125;
+</code></pre>
+<ol start="4">
+<li>分页</li>
+</ol>
+<pre><code>GET news202010/_search
+&#123;
+ &quot;query&quot;: &#123;
+   &quot;match&quot;: &#123;
+     &quot;textSrc&quot;: &quot;海底捞&quot;
+   &#125;
+ &#125;,
+ &quot;sort&quot;: [
+   &#123;
+     &quot;pubtime&quot;: &#123;
+       &quot;order&quot;: &quot;desc&quot;
+     &#125;
+   &#125;
+ ],
+ &quot;from&quot;: 0,
+ &quot;size&quot;: 20
+&#125;
+</code></pre>
+<ol start="5">
+<li>多条件查询</li>
+</ol>
+<pre><code>GET news202010/_search
+&#123;
+ &quot;query&quot;: &#123;
+   &quot;bool&quot;: &#123;
+     &quot;must&quot;: [
+       &#123;
+         &quot;match&quot;: &#123;
+           &quot;mediaNameSrc&quot;: &quot;搜狐&quot;
+         &#125;
+       &#125;,
+       &#123;
+         &quot;match&quot;: &#123;
+          li &quot;countryName&quot;: &quot;中国&quot;
+         &#125;
+       &#125;
+     ]
+   &#125;
+ &#125;
+&#125;
+// must 相当于 mysql 中 where id = 1 and name=xxx
+// should 相当于 or
+</code></pre>
 
         </div>
 
@@ -320,6 +330,21 @@
 
         
             <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/05/17/wsl2%E5%AE%89%E8%A3%85node%E5%B7%A5%E5%85%B7/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">wsl2安装node工具</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
                 
                 
                     <div class="article-next">
