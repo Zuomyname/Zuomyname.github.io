@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Golang</title>
+    <url>/2021/06/07/Golang/</url>
+    <content><![CDATA[基本数据类型数值型整数型复杂数据类型整型字符串浮点型布尔值]]></content>
+      <tags>
+        <tag>Golang</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Mysql8-root密码忘记找回</title>
     <url>/2021/06/07/Mysql8-root%E5%AF%86%E7%A0%81%E5%BF%98%E8%AE%B0%E6%89%BE%E5%9B%9E/</url>
     <content><![CDATA[停止 Mysql 服务brew services stop mysql
@@ -75,95 +83,6 @@ chmod +x /usr/local/bin/wkhtmltopdf-amd64
 ]]></content>
       <tags>
         <tag>Composer</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Laravel passport OAuth 认证使用</title>
-    <url>/2021/05/17/laravel-passport-OAuth-%E8%AE%A4%E8%AF%81%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[安装扩展包composer require laravel/passport
-
-数据库迁移php artisan migrate
-
-安装 Passportphp artisan passport:install
-
-在用户模型类中使用 HasApiTokens Trait// 在 User Model 中
-use HasApiTokens;
-
-在 AuthServiceProvider 中注册 Passport 路由public function boot()
-&#123;
-    $this-&gt;registerPolicies();
-
-    Passport::routes();// 这里增加
-&#125;
-
-设置 Passport 在输入 API 请求中使用// 位置 =&gt; config/auth.php
-&#39;api&#39; =&gt; [
-       &#39;driver&#39; =&gt; &#39;passport&#39;, // 这里是修改的
-       &#39;provider&#39; =&gt; &#39;users&#39;,
-],
-
-从 Web 浏览器访问认证 API// 先要在 Http\Kernel.php 的 $middlewareGroups 属性中新增中间件 CreateFreshApiToken
-
-protected $middlewareGroups = [
-    &#39;web&#39; =&gt; [
-        \App\Http\Middleware\EncryptCookies::class,
-        \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
-        \Illuminate\Session\Middleware\StartSession::class,
-        // \Illuminate\Session\Middleware\AuthenticateSession::class,
-        \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-        \App\Http\Middleware\VerifyCsrfToken::class,
-        \Illuminate\Routing\Middleware\SubstituteBindings::class,
-        CreateFreshApiToken::class // 这里是增加的
-    ],
-
-    &#39;api&#39; =&gt; [
-        &#39;throttle:60,1&#39;,
-        &#39;bindings&#39;,
-    ],
-];
-
-在 api.php 中使用Route::prefix(&#39;v1&#39;)
-    -&gt;middleware(&#39;auth:api&#39;)
-    -&gt;group(function () &#123;
-        Route::get(&#39;/user&#39;, function (Request $request) &#123;
-           return $request-&gt;user();
-        &#125;);
-    &#125;);
-
-]]></content>
-      <tags>
-        <tag>Laravel</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo多台电脑同步</title>
-    <url>/2021/05/17/hexo%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E5%90%8C%E6%AD%A5/</url>
-    <content><![CDATA[hexo 在多台设备下进行同步设计的思路就是在 github 下创建一个公共的仓库用来存储 hexo 生成的页面，一个私有的仓库来存储 hexo 的源文件
-创建公共仓库创建私有仓库提交源文件到私有仓库上// 在初始源文件目录
-git init
-git add.
-git commit -m &#39;first commit source&#39;
-git remote add xxxxxx
-git push -u origin main
-
-这里会有一些关于主题的注意事项，等我使用了其他主题再来更新
-在其他设备上 clone 源文件使用的前提上要安装好 node、npm、hexo-cli
-npm install -g hexo-cli
-git clone xxxxxx
-cd xxxxxx
-npm install
-
-正常使用 hexohexo clean
-hexo g
-hexo d
-
-更新源文件git add .
-git commit -m &#39;update&#39;
-git push origin main
-
-]]></content>
-      <tags>
-        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -290,6 +209,95 @@ GET weibo202105/_search
       </tags>
   </entry>
   <entry>
+    <title>hexo多台电脑同步</title>
+    <url>/2021/05/17/hexo%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E5%90%8C%E6%AD%A5/</url>
+    <content><![CDATA[hexo 在多台设备下进行同步设计的思路就是在 github 下创建一个公共的仓库用来存储 hexo 生成的页面，一个私有的仓库来存储 hexo 的源文件
+创建公共仓库创建私有仓库提交源文件到私有仓库上// 在初始源文件目录
+git init
+git add.
+git commit -m &#39;first commit source&#39;
+git remote add xxxxxx
+git push -u origin main
+
+这里会有一些关于主题的注意事项，等我使用了其他主题再来更新
+在其他设备上 clone 源文件使用的前提上要安装好 node、npm、hexo-cli
+npm install -g hexo-cli
+git clone xxxxxx
+cd xxxxxx
+npm install
+
+正常使用 hexohexo clean
+hexo g
+hexo d
+
+更新源文件git add .
+git commit -m &#39;update&#39;
+git push origin main
+
+]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Laravel passport OAuth 认证使用</title>
+    <url>/2021/05/17/laravel-passport-OAuth-%E8%AE%A4%E8%AF%81%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[安装扩展包composer require laravel/passport
+
+数据库迁移php artisan migrate
+
+安装 Passportphp artisan passport:install
+
+在用户模型类中使用 HasApiTokens Trait// 在 User Model 中
+use HasApiTokens;
+
+在 AuthServiceProvider 中注册 Passport 路由public function boot()
+&#123;
+    $this-&gt;registerPolicies();
+
+    Passport::routes();// 这里增加
+&#125;
+
+设置 Passport 在输入 API 请求中使用// 位置 =&gt; config/auth.php
+&#39;api&#39; =&gt; [
+       &#39;driver&#39; =&gt; &#39;passport&#39;, // 这里是修改的
+       &#39;provider&#39; =&gt; &#39;users&#39;,
+],
+
+从 Web 浏览器访问认证 API// 先要在 Http\Kernel.php 的 $middlewareGroups 属性中新增中间件 CreateFreshApiToken
+
+protected $middlewareGroups = [
+    &#39;web&#39; =&gt; [
+        \App\Http\Middleware\EncryptCookies::class,
+        \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+        \Illuminate\Session\Middleware\StartSession::class,
+        // \Illuminate\Session\Middleware\AuthenticateSession::class,
+        \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+        \App\Http\Middleware\VerifyCsrfToken::class,
+        \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        CreateFreshApiToken::class // 这里是增加的
+    ],
+
+    &#39;api&#39; =&gt; [
+        &#39;throttle:60,1&#39;,
+        &#39;bindings&#39;,
+    ],
+];
+
+在 api.php 中使用Route::prefix(&#39;v1&#39;)
+    -&gt;middleware(&#39;auth:api&#39;)
+    -&gt;group(function () &#123;
+        Route::get(&#39;/user&#39;, function (Request $request) &#123;
+           return $request-&gt;user();
+        &#125;);
+    &#125;);
+
+]]></content>
+      <tags>
+        <tag>Laravel</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Laravel 解决跨域</title>
     <url>/2021/04/30/laravel-%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F/</url>
     <content><![CDATA[1. 安装扩展composer require barryvdh/laravel-cors
@@ -304,26 +312,6 @@ GET weibo202105/_search
       </categories>
       <tags>
         <tag>Laravel</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MySql8 修改密码加密方式</title>
-    <url>/2021/05/06/mysql8-%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81%E5%8A%A0%E5%AF%86%E6%96%B9%E5%BC%8F/</url>
-    <content><![CDATA[进入my.cnf 修改配置文件vim /etc/my.cnf
-[mysqld]
-default_authentication_plugin=mysql_native_password
-
-进入 mysql 修改配置ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;密码&#39; PASSWORD EXPIRE NEVER;
-ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &#39;密码&#39;; 
-FLUSH PRIVILEGES;
-
-查看加密方式是否被改变use mysql;
-select user,plugin from user;
-// 如果出现两个root用户且加密方式不对，删除不是mysql_native_password的一个
-
-]]></content>
-      <tags>
-        <tag>MySql</tag>
       </tags>
   </entry>
   <entry>
@@ -414,6 +402,26 @@ v-on(简写 ‘@’)
 计算属性]]></content>
       <tags>
         <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySql8 修改密码加密方式</title>
+    <url>/2021/05/06/mysql8-%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81%E5%8A%A0%E5%AF%86%E6%96%B9%E5%BC%8F/</url>
+    <content><![CDATA[进入my.cnf 修改配置文件vim /etc/my.cnf
+[mysqld]
+default_authentication_plugin=mysql_native_password
+
+进入 mysql 修改配置ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;密码&#39; PASSWORD EXPIRE NEVER;
+ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &#39;密码&#39;; 
+FLUSH PRIVILEGES;
+
+查看加密方式是否被改变use mysql;
+select user,plugin from user;
+// 如果出现两个root用户且加密方式不对，删除不是mysql_native_password的一个
+
+]]></content>
+      <tags>
+        <tag>MySql</tag>
       </tags>
   </entry>
   <entry>
