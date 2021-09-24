@@ -1,37 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Golang</title>
-    <url>/2021/06/07/Golang/</url>
-    <content><![CDATA[基本数据类型数值型整数型复杂数据类型整型字符串浮点型布尔值字典
-声明```// 声明var testMap map[string]int // string 是key的类型，int 是值得类型
-
-// 初始化testMap := map[string]int{    “one”: 1,    “two”: 2,}
-// orvar testMap = make(map[string]int)testMap[“one”] = 100testMap[“two”] = 200
-2. 使用
- - 元素赋值
-
- testMap[“one”] = 200
-- 查找元素
-
-value,ok := testMap[“one”]if ok {    // 处理}
-- 删除元素
-
- delete(testMap, “one”)
-- 遍历字典
-
- testMap := map[string]int{     “one”: 1,     “two”: 2,     “three”: 3, }
-for key,value := range testMap {    fmt.Println(key, value)}
-- 键值对调
-
-testMap := map[string]int{     “one”: 1,     “two”: 2,     “three”: 3, }// 这里需要重新定义一个 map 来接收 intMap := make(map[int]string, 3)
-for key,value := range testMap {    intMap[value] = key} ```
-]]></content>
-      <tags>
-        <tag>Golang</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Mysql8-root密码忘记找回</title>
     <url>/2021/06/07/Mysql8-root%E5%AF%86%E7%A0%81%E5%BF%98%E8%AE%B0%E6%89%BE%E5%9B%9E/</url>
     <content><![CDATA[停止 Mysql 服务brew services stop mysql
@@ -54,6 +23,14 @@ ALTER user &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;password&#39;;
 ]]></content>
       <tags>
         <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Golang</title>
+    <url>/2021/06/07/Golang/</url>
+    <content><![CDATA[基本数据类型数值型整数型复杂数据类型整型字符串浮点型布尔值字典]]></content>
+      <tags>
+        <tag>Golang</tag>
       </tags>
   </entry>
   <entry>
@@ -232,37 +209,6 @@ GET weibo202105/_search
       </tags>
   </entry>
   <entry>
-    <title>hexo多台电脑同步</title>
-    <url>/2021/05/17/hexo%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E5%90%8C%E6%AD%A5/</url>
-    <content><![CDATA[hexo 在多台设备下进行同步设计的思路就是在 github 下创建一个公共的仓库用来存储 hexo 生成的页面，一个私有的仓库来存储 hexo 的源文件
-创建公共仓库创建私有仓库提交源文件到私有仓库上// 在初始源文件目录
-git init
-git add.
-git commit -m &#39;first commit source&#39;
-git remote add xxxxxx
-git push -u origin main
-
-这里会有一些关于主题的注意事项，等我使用了其他主题再来更新
-在其他设备上 clone 源文件使用的前提上要安装好 node、npm、hexo-cli
-npm install -g hexo-cli
-git clone xxxxxx
-cd xxxxxx
-npm install
-
-正常使用 hexohexo clean
-hexo g
-hexo d
-
-更新源文件git add .
-git commit -m &#39;update&#39;
-git push origin main
-
-]]></content>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Laravel passport OAuth 认证使用</title>
     <url>/2021/05/17/laravel-passport-OAuth-%E8%AE%A4%E8%AF%81%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[安装扩展包composer require laravel/passport
@@ -321,23 +267,6 @@ protected $middlewareGroups = [
       </tags>
   </entry>
   <entry>
-    <title>Laravel 解决跨域</title>
-    <url>/2021/04/30/laravel-%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F/</url>
-    <content><![CDATA[1. 安装扩展composer require barryvdh/laravel-cors
-
-2. 发布配置文件php artisan vendor:publish --provider=&quot;Barryvdh\Cors\ServiceProvider&quot;
-
-3. 使用如果需要全局使用，可以在 app/Http/Kernel.php 的 $middleware 中增加 \Barryvdh\Cors\HandleCors::class，
-
-]]></content>
-      <categories>
-        <category>PHP</category>
-      </categories>
-      <tags>
-        <tag>Laravel</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MySql8 修改密码加密方式</title>
     <url>/2021/05/06/mysql8-%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81%E5%8A%A0%E5%AF%86%E6%96%B9%E5%BC%8F/</url>
     <content><![CDATA[进入my.cnf 修改配置文件vim /etc/my.cnf
@@ -358,6 +287,37 @@ select user,plugin from user;
       </tags>
   </entry>
   <entry>
+    <title>hexo多台电脑同步</title>
+    <url>/2021/05/17/hexo%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E5%90%8C%E6%AD%A5/</url>
+    <content><![CDATA[hexo 在多台设备下进行同步设计的思路就是在 github 下创建一个公共的仓库用来存储 hexo 生成的页面，一个私有的仓库来存储 hexo 的源文件
+创建公共仓库创建私有仓库提交源文件到私有仓库上// 在初始源文件目录
+git init
+git add.
+git commit -m &#39;first commit source&#39;
+git remote add xxxxxx
+git push -u origin main
+
+这里会有一些关于主题的注意事项，等我使用了其他主题再来更新
+在其他设备上 clone 源文件使用的前提上要安装好 node、npm、hexo-cli
+npm install -g hexo-cli
+git clone xxxxxx
+cd xxxxxx
+npm install
+
+正常使用 hexohexo clean
+hexo g
+hexo d
+
+更新源文件git add .
+git commit -m &#39;update&#39;
+git push origin main
+
+]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySql8 远程连接方式</title>
     <url>/2021/05/06/mysql8_%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/</url>
     <content><![CDATA[mysql8 默认配置是不开启远程连接的，这里我们需要修改 mysql 数据库的配置来主动开启
@@ -375,6 +335,23 @@ flush privileges;
       </tags>
   </entry>
   <entry>
+    <title>Laravel 解决跨域</title>
+    <url>/2021/04/30/laravel-%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F/</url>
+    <content><![CDATA[1. 安装扩展composer require barryvdh/laravel-cors
+
+2. 发布配置文件php artisan vendor:publish --provider=&quot;Barryvdh\Cors\ServiceProvider&quot;
+
+3. 使用如果需要全局使用，可以在 app/Http/Kernel.php 的 $middleware 中增加 \Barryvdh\Cors\HandleCors::class，
+
+]]></content>
+      <categories>
+        <category>PHP</category>
+      </categories>
+      <tags>
+        <tag>Laravel</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>vue-cli 初始化原型项目</title>
     <url>/2021/04/30/vue-cli-%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8E%9F%E5%9E%8B%E9%A1%B9%E7%9B%AE/</url>
     <content><![CDATA[安装 vue-clinpm install -g @vue/cli
@@ -389,6 +366,23 @@ npm run serve
 ]]></content>
       <tags>
         <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>wsl2安装node工具</title>
+    <url>/2021/05/17/wsl2%E5%AE%89%E8%A3%85node%E5%B7%A5%E5%85%B7/</url>
+    <content><![CDATA[安装 curlsudo apt-get install curl
+
+安装 nvmnvm：curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/*/install.sh | bash
+// 版本可以参照最新的 nvm 版本 [nvm github](https://github.com/nvm-sh/nvm)
+
+安装 node LTS 版本nvm install node --lts
+
+查看nvmnvm ls
+
+]]></content>
+      <tags>
+        <tag>wsl2</tag>
       </tags>
   </entry>
   <entry>
@@ -445,23 +439,6 @@ v-on(简写 ‘@’)
 计算属性]]></content>
       <tags>
         <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>wsl2安装node工具</title>
-    <url>/2021/05/17/wsl2%E5%AE%89%E8%A3%85node%E5%B7%A5%E5%85%B7/</url>
-    <content><![CDATA[安装 curlsudo apt-get install curl
-
-安装 nvmnvm：curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/*/install.sh | bash
-// 版本可以参照最新的 nvm 版本 [nvm github](https://github.com/nvm-sh/nvm)
-
-安装 node LTS 版本nvm install node --lts
-
-查看nvmnvm ls
-
-]]></content>
-      <tags>
-        <tag>wsl2</tag>
       </tags>
   </entry>
   <entry>
