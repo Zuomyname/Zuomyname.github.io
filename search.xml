@@ -3,7 +3,30 @@
   <entry>
     <title>Golang</title>
     <url>/2021/06/07/Golang/</url>
-    <content><![CDATA[基本数据类型数值型整数型复杂数据类型整型字符串浮点型布尔值]]></content>
+    <content><![CDATA[基本数据类型数值型整数型复杂数据类型整型字符串浮点型布尔值字典
+声明```// 声明var testMap map[string]int // string 是key的类型，int 是值得类型
+
+// 初始化testMap := map[string]int{    “one”: 1,    “two”: 2,}
+// orvar testMap = make(map[string]int)testMap[“one”] = 100testMap[“two”] = 200
+2. 使用
+ - 元素赋值
+
+ testMap[“one”] = 200
+- 查找元素
+
+value,ok := testMap[“one”]if ok {    // 处理}
+- 删除元素
+
+ delete(testMap, “one”)
+- 遍历字典
+
+ testMap := map[string]int{     “one”: 1,     “two”: 2,     “three”: 3, }
+for key,value := range testMap {    fmt.Println(key, value)}
+- 键值对调
+
+testMap := map[string]int{     “one”: 1,     “two”: 2,     “three”: 3, }// 这里需要重新定义一个 map 来接收 intMap := make(map[int]string, 3)
+for key,value := range testMap {    intMap[value] = key} ```
+]]></content>
       <tags>
         <tag>Golang</tag>
       </tags>
@@ -315,6 +338,26 @@ protected $middlewareGroups = [
       </tags>
   </entry>
   <entry>
+    <title>MySql8 修改密码加密方式</title>
+    <url>/2021/05/06/mysql8-%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81%E5%8A%A0%E5%AF%86%E6%96%B9%E5%BC%8F/</url>
+    <content><![CDATA[进入my.cnf 修改配置文件vim /etc/my.cnf
+[mysqld]
+default_authentication_plugin=mysql_native_password
+
+进入 mysql 修改配置ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;密码&#39; PASSWORD EXPIRE NEVER;
+ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &#39;密码&#39;; 
+FLUSH PRIVILEGES;
+
+查看加密方式是否被改变use mysql;
+select user,plugin from user;
+// 如果出现两个root用户且加密方式不对，删除不是mysql_native_password的一个
+
+]]></content>
+      <tags>
+        <tag>MySql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySql8 远程连接方式</title>
     <url>/2021/05/06/mysql8_%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/</url>
     <content><![CDATA[mysql8 默认配置是不开启远程连接的，这里我们需要修改 mysql 数据库的配置来主动开启
@@ -402,26 +445,6 @@ v-on(简写 ‘@’)
 计算属性]]></content>
       <tags>
         <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MySql8 修改密码加密方式</title>
-    <url>/2021/05/06/mysql8-%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81%E5%8A%A0%E5%AF%86%E6%96%B9%E5%BC%8F/</url>
-    <content><![CDATA[进入my.cnf 修改配置文件vim /etc/my.cnf
-[mysqld]
-default_authentication_plugin=mysql_native_password
-
-进入 mysql 修改配置ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;密码&#39; PASSWORD EXPIRE NEVER;
-ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &#39;密码&#39;; 
-FLUSH PRIVILEGES;
-
-查看加密方式是否被改变use mysql;
-select user,plugin from user;
-// 如果出现两个root用户且加密方式不对，删除不是mysql_native_password的一个
-
-]]></content>
-      <tags>
-        <tag>MySql</tag>
       </tags>
   </entry>
   <entry>
